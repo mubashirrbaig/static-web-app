@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-web-app-deployment
+  labels:
+    app: sample-web-app
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-web-app
+  template:
+    metadata:
+      app: sample-web-app
+      version: v2
+    spec:
+      containers:
+      - name: sample-web-app-container
+        image: janakiramm/myapp:v2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-web-app-service
+  labels:
+    app: sample-web-app
+
+spec:
+  type: ClusterIP
+  selector: sample-web-app
+  ports:
+  - port: 80
+    protocol: HTTP
