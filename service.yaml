@@ -7,7 +7,8 @@ metadata:
 
 spec:
   type: ClusterIP
-  selector: sample-web-app
+  selector: 
+    app: sample-web-app
   ports:
   - port: 80
     protocol: HTTP
