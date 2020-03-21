@@ -11,4 +11,3 @@ spec:
     app: sample-web-app
   ports:
   - port: 80
-    protocol: HTTP
