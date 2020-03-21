@@ -12,8 +12,9 @@ spec:
       app: sample-web-app
   template:
     metadata:
-      app: sample-web-app
-      version: v1
+      labels:
+        app: sample-web-app
+        version: v1
     spec:
       containers:
       - name: sample-web-app-container
