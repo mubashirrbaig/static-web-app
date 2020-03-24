@@ -1,0 +1,14 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: sample-web-app
+spec:
+  host: sample-web-app-service.default.svc.cluster.local
+  subsets:
+  - labels:   # SELECTOR.
+      version: safe # find pods with label "safe"
+      name: safe-group
+  - labels:
+      version: risky
+      name: risky-group
+   

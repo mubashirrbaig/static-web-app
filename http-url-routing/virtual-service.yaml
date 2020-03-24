@@ -1,0 +1,26 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata: 
+  name: sample-web-app # can be any name, no connection with any other name
+spec:
+  hosts:  # the service name that we are applying rule to (incoming host)
+    - "*"
+  gateways:
+    - ingress-gateway-configuration
+  http:
+  - match:
+    - uri: # IF
+        prefix: "/experimental"
+    route:
+    - destination:
+        host: reviews # target service name, can be any svc
+        subset: v2
+  - route:
+    - destination:
+        host: reviews # target service name, can be any svc
+        subset: v1
+
+
+
+
+
