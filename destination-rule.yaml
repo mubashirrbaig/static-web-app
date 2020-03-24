@@ -7,8 +7,8 @@ spec:
   subsets:
   - labels:   # SELECTOR.
       version: safe # find pods with label "safe"
-      name: safe-group
+    name: safe-group
   - labels:
       version: risky
-      name: risky-group
+    name: risky-group
    
