@@ -13,12 +13,12 @@ spec:
         prefix: "/experimental"
     route:
     - destination:
-        host: reviews # target service name, can be any svc
-        subset: v2
+        host: sample-web-app-service # target service name, can be any svc
+        subset: risky-group
   - route:
     - destination:
-        host: reviews # target service name, can be any svc
-        subset: v1
+        host: sample-web-app-service # target service name, can be any svc
+        subset: safe-group
 
 
 
