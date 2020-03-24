@@ -9,16 +9,31 @@ spec:
     - ingress-gateway-configuration
   http:
     - match:
-      - uri: # IF
+      - uri:  # IF
           prefix: "/experimental"
+      route: # THEN
+      - destination:
+          host: sample-web-app-service
+          subset: risky-group
+    - match:
+      - uri :
+          prefix: "/"
       route:
       - destination:
-          host: sample-web-app-service # target service name, can be any svc
-          subset: risky-group
-    - route:
-      - destination:
-          host: sample-web-app-service # target service name, can be any svc
-          subset: safe-group
+          host: sample-web-app-service
+          subset: safe-group  
+  # http:
+  #   - match:
+  #     - uri: # IF
+  #         prefix: "/experimental"
+  #     route:
+  #     - destination:
+  #         host: sample-web-app-service # target service name, can be any svc
+  #         subset: risky-group
+  #   - route:
+  #     - destination:
+  #         host: sample-web-app-service # target service name, can be any svc
+  #         subset: safe-group
 
 
 
