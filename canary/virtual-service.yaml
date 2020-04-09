@@ -11,13 +11,13 @@ spec:
    - route:
      -  destination:
           host: sample-web-app-service # target service name, can be any svc
-          subset: risky-group
-        weight: 90
+          subset: original
+        weight: 50
 
      -  destination:
           host: sample-web-app-service # target service name, can be any svc
-          subset: safe-group
-        weight: 10
+          subset: experimental
+        weight: 50
 
 
 

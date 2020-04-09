@@ -17,14 +17,42 @@ spec:
       route: # THEN
       - destination:
           host: sample-web-app-service
-          subset: risky-group
+          subset: experimental
     - match:
       - uri :
           prefix: "/"
       route:
       - destination:
           host: sample-web-app-service
-          subset: safe-group
+          subset: original
+
+# kind: VirtualService
+# apiVersion: networking.istio.io/v1alpha3
+# metadata:
+#   name: sample-web-app
+#   namespace: default
+# spec:
+#   hosts:      # which incoming host are we applying the proxy rules to???
+#     - "*"
+#   gateways:
+#     - ingress-gateway-configuration
+#   http:
+#     - match:
+#       - uri:  # IF
+#           prefix: "/experimental"
+#       - uri:  # OR
+#           prefix: "/canary"
+#       route: # THEN
+#       - destination:
+#           host: sample-web-app-service
+#           subset: risky-group
+#     - match:
+#       - uri :
+#           prefix: "/"
+#       route:
+#       - destination:
+#           host: sample-web-app-service
+#           subset: safe-group
 
 
 
